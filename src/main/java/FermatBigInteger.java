@@ -9,21 +9,21 @@ public class FermatBigInteger {
         this.numberOfTries = numberOfTries;
     }
 
-    public void setTestedNumber(String number){
-        if (isStringNumber(number)){
+    public void setTestedNumber(String number) {
+        if (isStringNumber(number)) {
             this.testedNumber = new BigInteger(number);
         } else {
             throw new RuntimeException("Text is not a number");
         }
     }
 
-    public void setNumberOfTries(int numberOfTries){
+    public void setNumberOfTries(int numberOfTries) {
         this.numberOfTries = numberOfTries;
     }
 
     private boolean isStringNumber(String number) {
         for (int i = 0; i < number.length(); i++) {
-            if(!Character.isDigit(number.charAt(i))) return false;
+            if (!Character.isDigit(number.charAt(i))) return false;
         }
         return true;
     }
@@ -31,6 +31,7 @@ public class FermatBigInteger {
     public boolean isPrimeNumber() {
         for (int i = 0; i < numberOfTries; i++) {
             BigInteger a = generateRandomNumberLowerThanTestesOne();
+            if (Utils.calculateNwd(a, testedNumber).compareTo(BigInteger.ONE) > 0) return false;
             if (!a.modPow(testedNumber.subtract(BigInteger.valueOf(1L)), testedNumber).equals(BigInteger.valueOf(1L)))
                 return false;
         }

@@ -17,4 +17,12 @@ public class Utils {
 
         return result;
     }
+
+    public static BigInteger calculateNwd(BigInteger a, BigInteger b) {
+        if (b.equals(BigInteger.ZERO)) {
+            return a;
+        } else {
+            return calculateNwd(b, a.mod(b));
+        }
+    }
 }

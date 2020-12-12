@@ -1,7 +1,8 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.math.BigInteger;
+
+import static org.junit.Assert.*;
 
 public class FermatTest {
 
@@ -43,5 +44,13 @@ public class FermatTest {
         fermatBigInteger.setTestedNumber(number);
         fermatBigInteger.setNumberOfTries(amountOfTries);
         assertFalse(fermatBigInteger.isPrimeNumber());
+    }
+
+    @Test
+    public void testNWD(){
+        BigInteger result = Utils.calculateNwd(BigInteger.valueOf(75), BigInteger.valueOf(100));
+        BigInteger result2 = Utils.calculateNwd(BigInteger.valueOf(56), BigInteger.valueOf(80));
+        assertEquals(result, BigInteger.valueOf(25));
+        assertEquals(result2, BigInteger.valueOf(8));
     }
 }
