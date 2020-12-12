@@ -32,7 +32,7 @@ public class FermatBigInteger {
         for (int i = 0; i < numberOfTries; i++) {
             BigInteger a = generateRandomNumberLowerThanTestesOne();
             if (Utils.calculateNwd(a, testedNumber).compareTo(BigInteger.ONE) > 0) return false;
-            if (!a.modPow(testedNumber.subtract(BigInteger.valueOf(1L)), testedNumber).equals(BigInteger.valueOf(1L)))
+            if (!a.modPow(testedNumber.subtract(BigInteger.ONE), testedNumber).equals(BigInteger.ONE))
                 return false;
         }
 

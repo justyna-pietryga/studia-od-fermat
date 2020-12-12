@@ -5,7 +5,7 @@ public class HandleFermat {
     public static BigInteger generateOddRandomNumber(String maxVal) throws Exception {
 
         BigInteger max = new BigInteger(maxVal);
-        BigInteger min = new BigInteger("0");// lower limit
+        BigInteger min = BigInteger.ZERO; // lower limit
 
         if (max.compareTo(BigInteger.valueOf(10).pow(9)) < 0) {
             throw new Exception("Number is not greater than 10^9");
